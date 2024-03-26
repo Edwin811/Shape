@@ -1,0 +1,233 @@
+﻿using System;
+
+class Shape
+{
+    public virtual void Bentuk()
+    {
+        Console.WriteLine("Bentuk");
+    }
+}
+
+class PersegiPanjang : Shape
+{
+    public int Panjang;
+    public int Lebar;
+    public PersegiPanjang()
+    {
+        this.Panjang = Panjang;
+        this.Lebar = Lebar;
+    }
+    public override void Bentuk()
+    {
+
+
+        Console.WriteLine("Masukkan panjang persegi panjang: ");
+        Panjang = int.Parse(Console.ReadLine());
+        Console.WriteLine("Masukkan lebar persegi panjang: ");
+        Lebar = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < Lebar; i++)
+        {
+            for (int j = 0; j < Panjang; j++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+class Lingkaran : Shape
+{
+    public int panjangLingkaran;
+    public Lingkaran()
+    {
+        this.panjangLingkaran = panjangLingkaran;
+    }
+    public override void Bentuk()
+    {
+
+        Console.WriteLine("Masukkan panjang lingkaran: ");
+        panjangLingkaran = int.Parse(Console.ReadLine());
+
+        // Menghitung radius lingkaran
+        int radius = panjangLingkaran / 2;
+
+        // Menentukan karakter yang digunakan untuk membentuk lingkaran
+        char karakter = '*';
+
+        // Perulangan untuk mencetak bagian atas lingkaran
+        for (int i = 0; i < radius; i++)
+        {
+            // Menentukan jumlah spasi yang dibutuhkan
+            int spasi = radius - i;
+
+            // Mencetak spasi
+            for (int j = 0; j < spasi; j++)
+            {
+                Console.Write(" ");
+            }
+
+            // Mencetak karakter lingkaran
+            for (int j = 0; j < 2 * i + 1; j++)
+            {
+                if (j == 0 || j == 2 * i)
+                {
+                    Console.Write(" ");
+                }
+                else
+                {
+                    Console.Write(karakter);
+                }
+            }
+
+            // Pindah baris
+            Console.WriteLine();
+        }
+
+        // Bagian tengah 3 baris
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < panjangLingkaran; j++)
+            {
+                if (j == 0 || j == panjangLingkaran - 1)
+                {
+                    Console.Write("*");
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+            }
+            Console.WriteLine();
+        }
+
+        // Perulangan untuk mencetak bagian bawah lingkaran
+        for (int i = radius - 1; i >= 0; i--)
+        {
+            // Menentukan jumlah spasi yang dibutuhkan
+            int spasi = radius - i;
+
+            // Mencetak spasi
+            for (int j = 0; j < spasi; j++)
+            {
+                Console.Write(" ");
+            }
+
+            // Mencetak karakter lingkaran
+            for (int j = 0; j < 2 * i + 1; j++)
+            {
+                if (j == 0 || j == 2 * i)
+                {
+                    Console.Write(" ");
+                }
+                else
+                {
+                    Console.Write(karakter);
+                }
+            }
+
+            // Pindah baris
+            Console.WriteLine();
+        }
+    }
+}
+
+class Segitiga : Shape
+{
+    int tinggi;
+    public Segitiga()
+    {
+        this.tinggi = tinggi;
+    }
+    public override void Bentuk()
+    {
+        int tinggi;
+
+        Console.WriteLine("Masukkan tinggi segitiga: ");
+        tinggi = int.Parse(Console.ReadLine());
+
+        for (int i = 1; i <= tinggi; i++)
+        {
+            for (int j = 0; j < i; j++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+class JajarGenjang : Shape
+{
+    int Panjangjajargenjang;
+    int tinggiJajarGenjang;
+    public JajarGenjang()
+    {
+        this.Panjangjajargenjang = Panjangjajargenjang;
+        this.tinggiJajarGenjang = tinggiJajarGenjang;
+    }
+    public override void Bentuk()
+    {
+
+
+        Console.WriteLine("Masukkan Panjangjajargenjang: ");
+        Panjangjajargenjang = int.Parse(Console.ReadLine());
+        Console.WriteLine("Masukkan tinggiJajarGenjang: ");
+        tinggiJajarGenjang = int.Parse(Console.ReadLine());
+
+        //atas
+        for (int i = 0; i < tinggiJajarGenjang; i++)
+        {
+            Console.Write(" ");
+        }
+        for (int i = 0; i < Panjangjajargenjang; i++)
+        {
+            Console.Write("*");
+        }
+        Console.WriteLine();
+
+        // bagian tengah
+        for (int i = 1; i < tinggiJajarGenjang; i++)
+        {
+            for (int j = 0; j < tinggiJajarGenjang - i; j++)
+            {
+                Console.Write(" ");
+            }
+            Console.Write("*");
+            for (int j = 0; j < Panjangjajargenjang - 2; j++)
+            {
+                Console.Write(" ");
+            }
+            Console.Write("*");
+            Console.WriteLine();
+        }
+
+        //Sisi bawah
+        for (int i = 0; i < Panjangjajargenjang; i++)
+        {
+            Console.Write("*");
+        }
+        Console.WriteLine();
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Segitiga segitiga = new Segitiga();
+        segitiga.Bentuk();
+
+        PersegiPanjang persegiPanjang = new PersegiPanjang();
+        persegiPanjang.Bentuk();
+
+        JajarGenjang jajarGenjang = new JajarGenjang();
+        jajarGenjang.Bentuk();
+
+        Lingkaran lingkaran = new Lingkaran();
+        lingkaran.Bentuk();
+
+    }
+}
