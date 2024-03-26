@@ -12,7 +12,7 @@ class PersegiPanjang : Shape
 {
     public int Panjang;
     public int Lebar;
-    public PersegiPanjang()
+    public PersegiPanjang(int Panjang, int Lebar)
     {
         this.Panjang = Panjang;
         this.Lebar = Lebar;
@@ -40,7 +40,7 @@ class PersegiPanjang : Shape
 class Lingkaran : Shape
 {
     public int panjangLingkaran;
-    public Lingkaran()
+    public Lingkaran(int panjangLingkaran)
     {
         this.panjangLingkaran = panjangLingkaran;
     }
@@ -136,7 +136,7 @@ class Lingkaran : Shape
 class Segitiga : Shape
 {
     int tinggi;
-    public Segitiga()
+    public Segitiga(int tinggi)
     {
         this.tinggi = tinggi;
     }
@@ -162,7 +162,7 @@ class JajarGenjang : Shape
 {
     int Panjangjajargenjang;
     int tinggiJajarGenjang;
-    public JajarGenjang()
+    public JajarGenjang(int Panjangjajargenjang, int tinggiJajarGenjang)
     {
         this.Panjangjajargenjang = Panjangjajargenjang;
         this.tinggiJajarGenjang = tinggiJajarGenjang;
